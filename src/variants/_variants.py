@@ -1,22 +1,9 @@
 # -*- coding: utf-8 -*-
 """Provides the variant form decorator."""
 
-import six
-
 import types
 
 __all__ = ['variants']
-
-
-class _StaticCallableMetaclass(type):
-    """Metaclass for a static callable function."""
-
-    def __call__(cls, *args, **kwargs):
-        """Rather than calling the constructor, call a static function."""
-        return cls.__main_form__(*args, **kwargs)
-
-    def __repr__(cls):
-        return cls.__func_repr__()
 
 
 def variants(f):
@@ -40,26 +27,31 @@ def variants(f):
             do_something(r.text)
     """
 
-    @six.add_metaclass(_StaticCallableMetaclass)
     class VariantFunction:
         __doc__ = f.__doc__
 
-        @staticmethod
-        def __main_form__(*args, **kwargs):
+        def __call__(self, *args, **kwargs):
             return f(*args, **kwargs)
 
-        @classmethod
-        def variant(cls, func_name):
+        def variant(self, func_name):
+            """Decorator to add a new variant form to the function."""
             def decorator(vfunc):
-                setattr(cls, func_name, vfunc)
-                return cls
+                setattr(self.__class__, func_name, staticmethod(vfunc))
+                return self
 
             return decorator
 
-        @classmethod
-        def __func_repr__(cls):
-            return '<VariantFunction {}>'.format(cls.__name__)
+        def __get__(self, instance, owner):
+            # This is necessary to bind instance methods
+            if instance is None:
+                return self
 
-    VariantFunction.__name__ = f.__name__
+            return types.MethodType(self, instance)
 
-    return VariantFunction
+        def __repr__(self):
+            return '<VariantFunction {}>'.format(self.__name__)
+
+    f_out = VariantFunction()
+    f_out.__name__ = f.__name__
+
+    return f_out

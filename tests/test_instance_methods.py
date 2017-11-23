@@ -42,7 +42,6 @@ class DivisionVariants(object):
         return funcs[mode](y)
 
 
-@pytest.mark.xfail
 @pytest.mark.parametrize('x,y,expected', DivisionData.DIV_VALS)
 def test_divide(x, y, expected):
     dv = DivisionVariants(x)

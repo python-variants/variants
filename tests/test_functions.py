@@ -8,6 +8,7 @@ from ._division_data import DivisionData
 
 import pytest
 
+
 ###
 # Example implementation - division function
 @variants
@@ -18,6 +19,7 @@ def divide(x, y):
 
 @divide.variant('round')
 def divide(x, y):
+    """A version of divide that also rounds."""
     return round(x / y)
 
 
