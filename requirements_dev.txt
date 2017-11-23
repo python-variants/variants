@@ -1,0 +1,7 @@
+pip
+wheel
+tox
+coverage
+Sphinx
+pytest
+pytest-runner
