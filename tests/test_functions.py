@@ -67,11 +67,12 @@ def test_round_callmain(x, y, expected):
 
 
 @pytest.mark.parametrize('x,y,expected', DivisionData.FLOOR_VALS)
-def test_round_callmain(x, y, expected):
+def test_floor(x, y, expected):
     assert divide.floor(x, y) == expected
 
+
 @pytest.mark.parametrize('x,y,expected', DivisionData.CEIL_VALS)
-def test_round_callmain(x, y, expected):
+def test_ceil(x, y, expected):
     assert divide.ceil(x, y) == expected
 
 
