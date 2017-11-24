@@ -63,6 +63,7 @@ def variants(f):
         def __init__(self, variant_func, instance):
             self.__instance = instance
             self.__name__ = variant_func.__name__
+            self.__doc__ = variant_func.__doc__
 
             # Convert existing variants to methods
             for vname in variant_func._variants:

@@ -16,6 +16,7 @@ class DivisionVariants(object):
 
     @variants
     def divide(self, y):
+        """Function that divides the bound x by y."""
         return self.x / y
 
     @divide.variant('round')
@@ -42,6 +43,8 @@ class DivisionVariants(object):
         return funcs[mode](y)
 
 
+###
+# Test divide instance methods
 @pytest.mark.parametrize('x,y,expected', DivisionData.DIV_VALS)
 def test_divide(x, y, expected):
     dv = DivisionVariants(x)
@@ -80,3 +83,15 @@ def test_mode_change_x(x, y, expected, mode):
 
     dv.x = 0
     assert dv.divide.mode(y, mode) == 0
+
+
+###
+# Division instance method metadata tests
+def test_name():
+    dv = DivisionVariants(0)
+    assert dv.divide.__name__ == 'divide'
+
+
+def test_docstring():
+    dv = DivisionVariants(0)
+    assert dv.divide.__doc__ == """Function that divides the bound x by y."""
