@@ -27,7 +27,7 @@ def variants(f):
             do_something(r.text)
     """
 
-    class VariantFunction:
+    class VariantFunction(object):
         __doc__ = f.__doc__
 
         def __init__(self):
@@ -49,10 +49,10 @@ def variants(f):
 
             return decorator
 
-        def __get__(self, instance, owner):
+        def __get__(self, obj, objtype=None):
             # This is necessary to bind instance methods
-            if instance is not None:
-                return VariantMethod(self, instance)
+            if obj is not None:
+                return VariantMethod(self, obj)
 
             return self
 
