@@ -48,41 +48,30 @@ def test_divide(x, y, expected):
     assert dv.divide(y) == expected
 
 
-
-@pytest.mark.xfail
 @pytest.mark.parametrize('x,y,expected', DivisionData.ROUND_VALS)
 def test_round(x, y, expected):
     dv = DivisionVariants(x)
     assert dv.divide.round(y) == expected
 
 
-
-
-@pytest.mark.xfail
 @pytest.mark.parametrize('x,y,expected', DivisionData.FLOOR_VALS)
 def test_floor(x, y, expected):
     dv = DivisionVariants(x)
     assert dv.divide.floor(y) == expected
 
 
-
-
-@pytest.mark.xfail
 @pytest.mark.parametrize('x,y,expected', DivisionData.CEIL_VALS)
-def test_floor(x, y, expected):
+def test_ceil(x, y, expected):
     dv = DivisionVariants(x)
-    assert dv.divide.floor(y) == expected
+    assert dv.divide.ceil(y) == expected
 
 
-
-@pytest.mark.xfail
 @pytest.mark.parametrize('x,y,expected,mode', DivisionData.MODE_VALS)
 def test_mode(x, y, expected, mode):
     dv = DivisionVariants(x)
     assert dv.divide.mode(y, mode) == expected
 
 
-@pytest.mark.xfail
 @pytest.mark.parametrize('x,y,expected,mode', DivisionData.MODE_VALS)
 def test_mode_change_x(x, y, expected, mode):
     # Test that with mutable values it still works after x is changed
