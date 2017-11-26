@@ -2,7 +2,7 @@ from __future__ import division
 
 import math
 
-from variants import variants
+import variants
 
 from ._division_data import DivisionData
 
@@ -11,7 +11,7 @@ import pytest
 
 ###
 # Example implementation - division function
-@variants
+@variants.primary
 def divide(x, y):
     """A function that divides x by y."""
     return x / y

@@ -4,7 +4,7 @@ import math
 
 import pytest
 
-from variants import variants
+import variants
 from ._division_data import DivisionData
 
 
@@ -14,7 +14,7 @@ class DivisionVariants(object):
     def __init__(self, x):
         self.x = x
 
-    @variants
+    @variants.primary
     def divide(self, y):
         """Function that divides the bound x by y."""
         return self.x / y

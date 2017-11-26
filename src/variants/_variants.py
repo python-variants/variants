@@ -3,10 +3,10 @@
 
 import functools
 
-__all__ = ['variants']
+__all__ = ['primary']
 
 
-def variants(f):
+def primary(f):
     """
     Decorator to register a function that has variant forms.
 
