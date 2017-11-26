@@ -3,6 +3,7 @@ from __future__ import division
 import math
 
 import pytest
+import six
 
 import variants
 from ._division_data import DivisionData
@@ -90,6 +91,12 @@ def test_mode_change_x(x, y, expected, mode):
 def test_name():
     dv = DivisionVariants(0)
     assert dv.divide.__name__ == 'divide'
+
+
+@pytest.mark.skipif(six.PY2, reason='__qualname__ introduced in Python 3.3')
+def test_qualname():
+    dv = DivisionVariants(0)
+    assert dv.divide.__qualname__ == 'DivisionVariants.divide'
 
 
 def test_docstring():

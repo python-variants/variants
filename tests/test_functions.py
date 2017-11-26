@@ -7,6 +7,7 @@ import variants
 from ._division_data import DivisionData
 
 import pytest
+import six
 
 
 ###
@@ -85,6 +86,11 @@ def test_mode(x, y, expected, mode):
 # Division function metadata tests
 def test_name():
     assert divide.__name__ == 'divide'
+
+
+@pytest.mark.skipif(six.PY2, reason='__qualname__ introduced in Python 3.3')
+def test_qualname():
+    assert divide.__qualname__ == 'divide'
 
 
 def test_docstring():
