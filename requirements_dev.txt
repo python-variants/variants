@@ -2,6 +2,6 @@ pip==9.0.1
 wheel==0.30.0
 tox==2.9.1
 coverage==4.4.2
-Sphinx
+Sphinx==1.6.5
 pytest
 pytest-runner
