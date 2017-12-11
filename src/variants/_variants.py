@@ -38,6 +38,9 @@ class VariantFunction(object):
     def __call__(self, *args, **kwargs):
         return self.__main_form__(*args, **kwargs)
 
+    def __getattr__(self, key):
+        return getattr(self.__main_form__, key)
+
     def _add_variant(self, var_name, vfunc):
         self._variants.add(var_name)
         setattr(self, var_name, vfunc)
