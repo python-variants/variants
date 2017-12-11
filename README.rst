@@ -13,10 +13,6 @@ variants
         :target: https://variants.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-.. image:: https://pyup.io/repos/github/python-variants/variants/shield.svg
-     :target: https://pyup.io/repos/github/python-variants/variants/
-     :alt: Updates
-
 ``variants`` is a library that provides syntactic sugar for creating alternate forms of functions and other callables, in the same way that alternate constructors are class methods that provide alternate forms of the constructor function.
 
 To create a function with variants, simply decorate the primary form with ``@variants.primary``, which then adds the ``.variant`` decorator to the original function, which can be used to register new variants. Here is a simple example of a function that prints text, with variants that specify the source of the text to print:
@@ -71,13 +67,4 @@ Requirements
 ------------
 
 This is a library for Python, with support for versions 2.7 and 3.4+.
-
-
-Credits
----------
-
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
-
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
 
