@@ -32,13 +32,13 @@ You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/pganssle/variants
+    $ git clone git://github.com/python-variants/variants
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl  -OL https://github.com/pganssle/variants/tarball/master
+    $ curl  -OL https://github.com/python-variants/variants/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/pganssle/variants
-.. _tarball: https://github.com/pganssle/variants/tarball/master
+.. _Github repo: https://github.com/python-variants/variants
+.. _tarball: https://github.com/python-variants/variants/tarball/master
