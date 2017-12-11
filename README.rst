@@ -63,8 +63,72 @@ To create a function with variants, simply decorate the primary form with ``@var
     print_text.from_url(hw_url)                 # Hello, world! (from url)
 
 
+Differences from singledispatch
+-------------------------------
+
+While ``variants`` and |singledispatch|_ are both intended to provide alternative implementations
+to a primary function, the overall aims are slightly different. ``singledispatch`` transparently
+dispatches to variant functions based on the *type* of the argument, whereas ``variants`` provides
+*explicit* alternative forms of the function. Note that in the above example, both
+``print_text.from_filepath`` and ``print_text.from_url`` take a string, one representing a file
+path and one representing a URL.
+
+Additionally, the ``variants`` is compatible with ``singledispatch``, so you can have the best of
+both worlds; an example that uses both:
+
+
+.. code-block:: python
+
+    @variants.primary
+    @singledispatch
+    def add(x, y):
+        return x + y
+
+    @add.variant('from_list')
+    @add.register(list)
+    def add(x, y):
+        return x + [y]
+
+Which then automatically dispatches between named variants based on type:
+
+.. code-block:: python
+
+    >>> add(1, 2)
+    3
+    >>> add([1], 2)
+    [1, 2]
+
+But also exposes the explicit variant functions:
+
+.. code-block:: python
+
+    >>> add.from_list([1], 2)
+    [1, 2]
+    >>> add.from_list()
+          7 @add.register(list)
+          8 def add(x, y):
+    ----> 9     return x + [y]
+
+    TypeError: unsupported operand type(s) for +: 'int' and 'list'
+
+It is important to note that the ``variants`` decorators **must be the outer decorators**.
+
+
+Installation
+------------
+
+To install variants, run this command in your terminal:
+
+.. code-block:: console
+
+    $ pip install variants
+
+
 Requirements
 ------------
 
 This is a library for Python, with support for versions 2.7 and 3.4+.
+
+.. |singledispatch| replace:: ``singledispatch``
+.. _singledispatch: https://docs.python.org/3/library/functools.html#functools.singledispatch
 
