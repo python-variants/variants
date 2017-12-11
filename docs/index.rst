@@ -1,6 +1,10 @@
 Welcome to variants's documentation!
 ======================================
 
+.. include:: ../README.rst
+
+Documentation
+=============
 Contents:
 
 .. toctree::
@@ -9,7 +13,6 @@ Contents:
    readme
    installation
    usage
-   modules
    contributing
    authors
    history
