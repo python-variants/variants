@@ -11,8 +11,10 @@ Contents:
    :maxdepth: 2
 
    readme
+   sphinx
    installation
    usage
+   examples/example_mod
 
 .. toctree::
    :maxdepth: 1
