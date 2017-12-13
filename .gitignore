@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# setuptools_scm
+src/variants/_version.py
+
 # Distribution / packaging
 .Python
 env/
