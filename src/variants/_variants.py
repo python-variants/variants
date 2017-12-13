@@ -99,11 +99,13 @@ def primary(f):
 
     Decorate the main form of the function with this decorator, and then
     subsequent variants should be declared with the same name as the original
-    function.
+    function [#]_:
 
-    .. example::
+    .. code-block:: python
 
-        @variants
+        import variants
+
+        @variants.primary
         def myfunc(fpath):
             with open(fpath, 'r') as f:
                 do_something(f.read())
@@ -112,6 +114,18 @@ def primary(f):
         def myfunc(url):
             r = requests.get(url)
             do_something(r.text)
+
+    The ``primary`` decorator returns an object that attempts to transparently
+    proxy the original methods of the original callable, but variants added to
+    the primary function will shadow the original methods and attributes. Other
+    than this, any valid python identifier is a valid name for a variant.
+
+    .. [#] Declaring subsequent variants with the same name as the original
+        function is a stylistic convention, not a requirement. Decorating
+        any function with the ``.variant`` decorator will mutate the primary
+        function object, no matter the name of the variant function. However,
+        whatever function you use for the variant function declaration will
+        become an alias for the primary function.
     """
     f_out = variant_wraps(VariantFunction(f))
 
