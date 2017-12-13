@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
-with open('HISTORY.rst') as history_file:
+with open('NEWS.rst') as history_file:
     history = history_file.read()
 
 requirements = []
@@ -31,7 +31,7 @@ setup(
     long_description=readme + '\n\n' + history,
     author="Paul Ganssle",
     author_email='paul@ganssle.io',
-    url='https://github.com/pganssle/variants',
+    url='https://github.com/python-variants/variants',
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     include_package_data=True,
@@ -40,7 +40,7 @@ setup(
     zip_safe=True,
     keywords='variants',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
