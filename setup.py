@@ -11,12 +11,10 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [
-    'six'
-]
+requirements = []
 
 setup_requirements = [
-    'pytest-runner',
+    'setuptools_scm'
 ]
 
 test_requirements = [
@@ -28,7 +26,7 @@ DESCRIPTION = ('Library that enables the creation of alternate constructor-like'
 
 setup(
     name='variants',
-    version='0.1.0',
+    use_scm_version={'write_to': 'src/variants/_version.py'},
     description=DESCRIPTION,
     long_description=readme + '\n\n' + history,
     author="Paul Ganssle",
