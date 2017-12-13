@@ -1,0 +1,5 @@
+[tool.towncrier]
+    package = "variants"
+    package_dir = "src/variants"
+    filename = "NEWS.rst"
+    directory = "changelog.d"
