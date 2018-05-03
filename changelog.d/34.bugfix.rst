@@ -1,0 +1,1 @@
+Updated MANIFEST.in to include NEWS.rst
