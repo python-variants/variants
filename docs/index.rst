@@ -13,6 +13,7 @@ Contents:
    readme
    installation
    usage
+   Variant Autodoc (Sphinx) <sphinx>
 
 .. toctree::
    :maxdepth: 1
