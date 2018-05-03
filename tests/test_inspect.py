@@ -60,3 +60,18 @@ some_instance = SomeClass()
 ])
 def test_is_primary(f, exp):
     assert vinsp.is_primary(f) == exp
+
+
+@pytest.mark.parametrize('f,exp', [
+    (SomeClass.prim_method, False),
+    (some_instance.prim_method, True),
+    (SomeClass.prim_method.alt, False),
+    (some_instance.prim_method.alt, False),
+    (prim_func, False),
+    (rfunc, False),
+    (prim_func.alt, False),
+    (prim_func.prim_group, False),
+    (prim_func.prim_group.alt2, False),
+])
+def test_is_primary_method(f, exp):
+    assert vinsp.is_primary_method(f) == exp
