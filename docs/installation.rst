@@ -19,7 +19,7 @@ This is the preferred method to install variants, as it will always install the 
 If you don't have `pip`_ installed, this `Python installation guide`_ can guide
 you through the process.
 
-.. _pip: https://pip.pypa.io
+.. _pip: https://pip.pypa.io/en/stable/
 .. _Python installation guide: http://docs.python-guide.org/en/latest/starting/installation/
 
 
