@@ -21,6 +21,11 @@ Contents:
    authors
    changelog
 
+.. toctree::
+    :maxdepth: 2
+
+    API Documentation <api/index.rst>
+
 Indices and tables
 ==================
 

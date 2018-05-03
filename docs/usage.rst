@@ -7,4 +7,5 @@ decorator, which will add the ``variant`` method to your original function.
 
 .. module:: variants
 .. autofunction:: variants.primary
+    :noindex:
 
