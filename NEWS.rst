@@ -7,7 +7,12 @@ Features
 - Added the ``variants.inspect`` module, which provides a public API for
   inspecting variant function groups. It currently provides two functions:
   ``is_primary`` and ``is_primary_method``. (GH #29)
+- Added python_requires to setup, indicating Python version support. (GH #34)
 
+Bugfixes
+--------
+
+- Updated MANIFEST.in to include NEWS.rst (GH #34)
 
 Improved Documentation
 ----------------------
