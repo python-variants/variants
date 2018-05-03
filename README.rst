@@ -4,7 +4,7 @@ variants
 
 
 .. image:: https://img.shields.io/pypi/v/variants.svg
-        :target: https://pypi.python.org/pypi/variants
+        :target: https://pypi.org/project/variants/
 
 .. image:: https://img.shields.io/travis/python-variants/variants.svg
         :target: https://travis-ci.org/python-variants/variants
