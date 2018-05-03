@@ -9,14 +9,14 @@ def primary_func(x, y):
     """
 
 
-@primary_func.variant('variant_1')
+@primary_func.variant('onearg')
 def primary_func(x):
-    """This is variant_1, it only takes one argument."""
+    """This is the ``onearg`` variant, it only takes one argument."""
 
 
-@primary_func.variant('variant_2')
+@primary_func.variant('threearg')
 def primary_func(x, y, z):
-    """This is variant_2, it takes three arguments."""
+    """This is the ``threearg`` variant, it takes three arguments."""
 
 
 class VariantMethodsClass(object):
@@ -27,6 +27,9 @@ class VariantMethodsClass(object):
         primary method documentation.
         """
 
-    @primary_method.variant('variant_1')
+    @primary_method.variant('onearg')
     def primary_method(self, x):
-        """This is variant_1, it takes one argument."""
+        """This is the ``onearg`` variant, it takes one argument."""
+
+    def normal_method(self, a, b):
+        """This is a normal method, it has no variants"""
