@@ -1,0 +1,1 @@
+Added the ``variants.inspect`` module, which provides a public API for inspecting variant function groups. It currently provides two functions: ``is_primary`` and ``is_primary_method``.
