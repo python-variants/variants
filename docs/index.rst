@@ -13,6 +13,10 @@ Contents:
    readme
    installation
    usage
+
+.. toctree::
+   :maxdepth: 1
+
    contributing
    authors
    changelog
