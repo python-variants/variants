@@ -15,7 +15,10 @@ matrix:
       env: TOXENV=docs
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -U tox-travis
+install:
+  - pip install -U tox-travis
+  - if [[ $TRAVIS_PYTHON_VERSION == "3.3" ]]; then pip install 'virtualenv<16.0'; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == "3.3" ]]; then pip install 'setuptools<40.0'; fi
 
 # command to run tests, e.g. python setup.py test
 script: tox
